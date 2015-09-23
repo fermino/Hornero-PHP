@@ -11,7 +11,7 @@
 			return false;
 		}
 
-		public static function Out($String, $NewLines = 1)
+		public static function Out($String = null, $NewLines = 1)
 		{
 			for($i = 0; $i < $NewLines; $i++)
 				$String .= PHP_EOL;
