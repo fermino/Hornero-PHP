@@ -16,7 +16,7 @@
 			for($i = 0; $i < $NewLines; $i++)
 				$String .= PHP_EOL;
 
-			if(fwrite(STDIN, $String) === strlen($String))
+			if(fwrite(STDOUT, $String) === strlen($String))
 				return true;
 
 			return false;
