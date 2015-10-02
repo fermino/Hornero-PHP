@@ -89,7 +89,7 @@
 		}
 		else
 		{
-			Std::Out("Usage: php Hornero.php [-n <Team Name>] [-t <Team Token>] [-d] <Problem ID>");
+			Std::Out("Usage: php Hornero.php [-n <Team Name>] [-t <Tournament Token>] [-d] <Problem ID>");
 		}
 	}
 	else
