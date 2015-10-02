@@ -10,7 +10,7 @@ Para configurar Hornero con los datos que te da la página una vez registrado, h
 php Hornero.php -n <Nombre del equipo> -t <Token del torneo>
 ```
 
-Luego, crea tu script en problems/<ID>.php, donde <ID> es el número identificador del torneo. Los datos están en la variable `$Parameters` (array) y debes ubicar la solución en `$Solution`. Mirá el script de ejemplo (problems/1.php). Para ejecutarlo y enviar la solución, hacé: 
+Luego, crea tu script en problems/<ID>.php, donde <ID> es el número identificador del torneo. Los datos están en la variable `$Parametros` (array) y debes ubicar la solución en `$Solucion`. Mirá el script de ejemplo (problems/1.php). Para ejecutarlo y enviar la solución, hacé: 
 
 ```
 php Hornero.php <ID>

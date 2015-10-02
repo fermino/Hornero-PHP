@@ -1,2 +1,2 @@
 <?php
-	$Solution = $Parameters[0] + $Parameters[1];
+	$Solucion = $Parametros[0] + $Parametros[1];

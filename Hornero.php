@@ -29,13 +29,13 @@
 
 	if(!empty($Config) && !empty($Config['TeamName']) && !empty($Config['TournamentToken']))
 	{
-		Std::Out("[Info] Welcome, {$Config['TeamName']} team", 2);
+		Std::Out("[Info] Bienvenido, equipo {$Config['TeamName']}", 2);
 
 		$ProblemID = !empty($Remaining[0]) ? (is_numeric($Remaining[0]) ? (int) $Remaining[0] : null) : null;
 
 		if(!empty($ProblemID))
 		{
-			Std::Out("[Info] Requesting parameters for problem with ID {$ProblemID}...", 2);
+			Std::Out("[Info] Pidiendo parámetros para el problema con ID {$ProblemID}...", 2);
 
 			$Hornero = new Hornero($Config['TournamentToken']);
 
@@ -44,7 +44,7 @@
 			if($Problem instanceof Problem)
 			{
 				if(isset($Arguments['d']))
-					Std::Out('[Info] Debug mode', 2);
+					Std::Out('[Info] Modo de pruebas', 2);
 
 				Std::Out("==> {$Problem->Name} ({$Problem->Token})");
 
@@ -58,39 +58,39 @@
 
 					if(is_readable($Path))
 					{
-						$Parameters = $Problem->Parameters;
+						$Parametros = $Problem->Parameters;
 
 						require_once $Path;
 
-						if(isset($Solution))
+						if(isset($Solucion))
 						{
-							Std::Out("[Info] Sending solution for problem with ID {$ProblemID} ({$Solution})...", 2);
+							Std::Out("[Info] Enviando solución para el problema con ID {$ProblemID} ({$Solucion})...", 2);
 
-							$SolutionResponse = $Hornero->SendSolution($Problem->Token, $Solution);
+							$SolutionResponse = $Hornero->SendSolution($Problem->Token, $Solucion);
 
 							if($SolutionResponse instanceof SolutionResponse)
 								print_r($SolutionResponse);
 							elseif(is_string($SolutionResponse))
 								Std::Out("[Warning] {$SolutionResponse}");
 							else
-								Std::Out('[Warning] Error while sending solution to server');
+								Std::Out('[Warning] Error al enviar la solución al servidor');
 						}
 						else
-							Std::Out('[Warning] You must put the solution in $Solution');
+							Std::Out('[Warning] Debes poner la solución en la variable $Solucion');
 					}
 					else
-						Std::Out("[Warning] problems/{$ProblemID}.php does not exists or is not readable");
+						Std::Out("[Warning] problems/{$ProblemID}.php no existe o no es legible");
 				}
 			}
 			elseif(is_string($Problem))
 				Std::Out("[Warning] {$Problem}");
 			else
-				Std::Out('[Warning] Error while requesting data from server');
+				Std::Out('[Warning] Error el pedir los parámetros al servidor');
 		}
 		else
 		{
-			Std::Out("Usage: php Hornero.php [-n <Team Name>] [-t <Team Token>] [-d] <Problem ID>");
+			Std::Out("Uso: php Hornero.php [-n <Nombre del equipo>] [-t <Token del torneo>] [-d] <Problem ID>");
 		}
 	}
 	else
-		Std::Out('[Fatal] You must configure TeamName and TournamentToken. Try with php Hornero.php -n <Name> -t <Token>');
+		Std::Out('[Fatal] Debes configurar el nombre del equipo y el token del torneo. Intenta con php Hornero.php -n <Nombre del equipo> -t <Token del torneo>');
