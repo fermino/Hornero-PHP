@@ -58,11 +58,11 @@
 
 					if(is_readable($Path))
 					{
-						$Parameters = $Problem->Parameters; // $Parametros
+						$Parameters = $Problem->Parameters;
 
 						require_once $Path;
 
-						if(isset($Solution)) // $Solucion
+						if(isset($Solution))
 						{
 							Std::Out("[Info] Sending solution for problem with ID {$ProblemID} ({$Solution})...", 2);
 
@@ -73,19 +73,19 @@
 							elseif(is_string($SolutionResponse))
 								Std::Out("[Warning] {$SolutionResponse}");
 							else
-								Std::Out('[Warning] No se puede hacer la petición (solución) al servidor');
+								Std::Out('[Warning] Error while sending solution to server');
 						}
 						else
-							Std::Out('[Warning] Debes poner la solución en la variable $Solution');
+							Std::Out('[Warning] You must put the solution in $Solution');
 					}
 					else
-						Std::Out("[Warning] El archivo (problems/{$ProblemID}.php) no existe o no es legible");
+						Std::Out("[Warning] problems/{$ProblemID}.php does not exists or is not readable");
 				}
 			}
 			elseif(is_string($Problem))
 				Std::Out("[Warning] {$Problem}");
 			else
-				Std::Out('[Warning] No se puede hacer la petición (parámetros) al servidor');
+				Std::Out('[Warning] Error while requesting data from server');
 		}
 		else
 		{
