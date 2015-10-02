@@ -22,12 +22,12 @@
 
 	if(!empty($Arguments['t']))
 	{
-		$Config['TeamToken'] = $Arguments['t'];
+		$Config['TournamentToken'] = $Arguments['t'];
 
 		Json::Encode($ConfigFileName, $Config);
 	}
 
-	if(!empty($Config) && !empty($Config['TeamName']) && !empty($Config['TeamToken']))
+	if(!empty($Config) && !empty($Config['TeamName']) && !empty($Config['TournamentToken']))
 	{
 		Std::Out("[Info] Welcome, {$Config['TeamName']} team", 2);
 
@@ -37,7 +37,7 @@
 		{
 			Std::Out("[Info] Requesting parameters for problem with ID {$ProblemID}...", 2);
 
-			$Hornero = new Hornero($Config['TeamToken']);
+			$Hornero = new Hornero($Config['TournamentToken']);
 
 			$Problem = $Hornero->GetParameters($ProblemID);
 
@@ -93,4 +93,4 @@
 		}
 	}
 	else
-		Std::Out('[Fatal] You must configure TeamName and TeamToken. Try with php Hornero.php -n <Name> -t <Token>');
+		Std::Out('[Fatal] You must configure TeamName and TournamentToken. Try with php Hornero.php -n <Name> -t <Token>');
