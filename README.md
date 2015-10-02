@@ -1,1 +1,25 @@
 # Hornero-PHP
+
+## Uso
+
+Registrate en http://hornero.fi.uncoma.edu.ar e ingresá en algún torneo. Iniciá una consola (cmd en windows, bash en linux) y navegá hasta el directorio de Hornero. 
+
+Para configurar Hornero con los datos que te da la página una vez registrado, hacé: 
+
+```
+php Hornero.php -n <Nombre del equipo> -t <Token del torneo>
+```
+
+Luego, crea tu script en problems/<ID>.php, donde <ID> es el número identificador del torneo, y para ejecutarlo y enviar la solución, hacé: 
+
+```
+php Hornero.php <ID>
+```
+
+Si quieres ver los parametros que devuelve el servidor, puedes hacer: 
+
+```
+php Hornero.php -d <ID>
+```
+
+Enjoy :)
