@@ -1,5 +1,7 @@
 # Hornero-PHP
 
+Una aplicación de consola intuitiva para interactuar con Hornero
+
 ## Uso
 
 Registrate en http://hornero.fi.uncoma.edu.ar e ingresá en algún torneo. Iniciá una consola (cmd en windows, bash en linux) y navegá hasta el directorio de Hornero. 
