@@ -29,7 +29,7 @@
 
 	if(!empty($Config) && !empty($Config['TeamName']) && !empty($Config['TeamToken']))
 	{
-		Std::Out("[Info] Welcome, {$Config['TeamName']}", 2);
+		Std::Out("[Info] Welcome, {$Config['TeamName']} team", 2);
 
 		$ProblemID = !empty($Remaining[0]) ? (is_numeric($Remaining[0]) ? (int) $Remaining[0] : null) : null;
 
