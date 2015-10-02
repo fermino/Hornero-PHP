@@ -58,9 +58,11 @@
 
 					if(is_readable($Path))
 					{
+						$Parameters = $Problem->Parameters; // $Parametros
+
 						require_once $Path;
 
-						if(isset($Solution))
+						if(isset($Solution)) // $Solucion
 						{
 							Std::Out("[Info] Sending solution for problem with ID {$ProblemID} ({$Solution})...", 2);
 
